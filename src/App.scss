@@ -1,0 +1,10 @@
+.App {
+  text-align: center;
+  display: flex;
+}
+
+.ui.card,
+.ui.cards > .card {
+  width: 600px !important;
+  height: 100vh !important;
+}

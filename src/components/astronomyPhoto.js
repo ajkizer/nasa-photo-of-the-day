@@ -1,7 +1,9 @@
 import React from "react";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import "semantic-ui-css/semantic.min.css";
 
+import { Card, Image, Icon } from "semantic-ui-react";
 function AstronomyPhoto() {
   const [photo, setPhoto] = useState("");
   const [explanation, setExplanation] = useState("");
@@ -21,13 +23,18 @@ function AstronomyPhoto() {
       });
   }, []);
   return (
-    <div className="img-container">
-      <h1>NASA Photo of the Day</h1>
-      <h2>{date}</h2>
-      <h2>{title}</h2>
-      <img src={photo} />
-      <p>{explanation}</p>
-    </div>
+    <Card>
+      <Image src={photo} wrapped ui={false} />
+      <Card.Content>
+        <Card.Header>{title}</Card.Header>
+        <Card.Meta>
+          <span className="date">{date}</span>
+        </Card.Meta>
+        <Card.Description className="explanation">
+          {explanation}
+        </Card.Description>
+      </Card.Content>
+    </Card>
   );
 }
 
